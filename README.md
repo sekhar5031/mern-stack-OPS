@@ -41,3 +41,12 @@ aws ecr get-login-password --region us-east-2 | docker login --username AWS --pa
 **creating registry**
 -----------------------
 aws ecr create-repository --repository-name rest-api --image-scanning-configuration scanOnPush=true --image-tag-mutability IMMUTABLE --region us-east-2
+
+
+**helm installation**
+---------------------
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+
+chmod 700 get_helm.sh
+
+./get_helm.sh
