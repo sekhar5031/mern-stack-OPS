@@ -30,4 +30,14 @@ sudo ./aws/install
 
 set aws context
 ---------------
-aws eks update-kubeconfig --name EKS_CLUSTER_NAME --region us-west-2ggg
+aws eks update-kubeconfig --name EKS_CLUSTER_NAME --region us-west-2
+
+
+** authenticate to your default registry**
+-------------------------------------------
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.us-east-2.amazonaws.com
+
+
+**creating registry**
+-----------------------
+aws ecr create-repository --repository-name rest-api --image-scanning-configuration scanOnPush=true --image-tag-mutability IMMUTABLE --region us-east-2
